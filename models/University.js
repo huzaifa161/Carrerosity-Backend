@@ -38,4 +38,4 @@ const UniversitySchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('UniversitySchema',UniversitySchema);
+module.exports = mongoose.model('University',UniversitySchema);
