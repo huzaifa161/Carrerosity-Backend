@@ -30,7 +30,6 @@ exports.login = async (req, res) => {
             message:"Email or Password is Incorrect"
         });
     }catch(err){
-        console.log('err',err)
         return res.json({
             statusCode: 400,
             message:"Something Went Wrong"

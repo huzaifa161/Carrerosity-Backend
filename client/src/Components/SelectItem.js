@@ -15,11 +15,11 @@ const SelectItem = props => {
                 </h2>
             </div>
             <div className="SelectItem-Body">
-                <select onChange={(val)=>props?.selectItem(val) } placeholder={placeholder} value={value}>
-                    <option disabled selected >{placeholder}</option>
+                <select onChange={(event)=>props?.selectItem(event) } placeholder={placeholder} value={value}>
+                    <option selected disabled >{placeholder}</option>
                     {
                         props.data?.map(item=>{
-                          return  <option value={item.id}>{item.name}</option>
+                            return <option key={ item._id} value={item._id}>{item.title}</option>
                         })
                     }
                 

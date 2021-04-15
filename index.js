@@ -11,8 +11,10 @@ app.use(cors());
 
 
 const authRoutes = require('./routes/auth');
+const universityRoutes = require('./routes/university');
 
 app.use('/auth', authRoutes);
+app.use('/university', universityRoutes);
 
 
 
