@@ -1,0 +1,400 @@
+const admissions = [
+    {
+        details: "",
+        university: "6073425a82d0162708724aba",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216f9"
+        ],
+        lastDate: new Date('05-21-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724aab",
+        programTypes: [
+            "60731d4de0520d2f184216f8"
+        ],
+        lastDate: new Date('06-28-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ab2",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216fa"
+        ],
+        lastDate: new Date('05-30-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ab5",
+        programTypes: [
+            "60731d4de0520d2f184216f9"
+        ],
+        lastDate: new Date('07-10-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724aae",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        lastDate: new Date('05-15-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ab0",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        lastDate: new Date('05-21-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724abf",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8"
+        ],
+        lastDate: new Date('05-15-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724acf",
+        programTypes: [
+            "60731d4de0520d2f184216f9"
+        ],
+        lastDate:new Date('5-15-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ad1",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8"
+        ],
+        lastDate: new Date('5-2-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ad3",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        lastDate: new Date('6-12-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ab7",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8"
+        ],
+        lastDate: new Date('4-25-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ab3",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+        ],
+        lastDate:new Date('4-29-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ac5",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+        ],
+        lastDate: new Date('5-5-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ac7",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        lastDate: new Date('6-26-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ace",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+        ],
+        lastDate: new Date('05-04-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724abc",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8"
+        ],
+        lastDate: new Date('06-30-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ac0",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8"
+        ],
+        lastDate: new Date('04-24-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724aca",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8"
+        ],
+        lastDate: new Date('07-12-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724abb",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+        ],
+        lastDate: new Date('05-05-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724aaa",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8"
+        ],
+        lastDate: new Date('07-20-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ab9",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8"
+        ],
+        lastDate: new Date('05-25-2021')
+        
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724aa9",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        lastDate: new Date('05-30-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ac3",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        lastDate: new Date('06-25-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ab1",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        lastDate: new Date('05-25-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724abd",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        lastDate: new Date('06-05-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ad0",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        lastDate: new Date('05-15-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ad8",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        lastDate: new Date('04-30-2021')
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ac1",
+        programTypes: [
+            "60731d4de0520d2f184216f9",
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        lastDate: new Date('04-30-2021')
+    },
+]
+
+
+
+
+const scholarships = [
+    {
+        details: "",
+        university: "6073425a82d0162708724ab5",
+        programTypes: [
+            "60731d4de0520d2f184216f9"
+        ],
+        deadline: new Date('07-10-2021'),
+        city:"60730f4c1271150dc4253624"
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ab0",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        deadline: new Date('06-05-2021'),
+        city:"60730f4c1271150dc4253624"
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724abf",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        deadline: new Date('08-15-2021'),
+        city:"60730f4c1271150dc4253624"
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ad3",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        deadline: new Date('08-25-2021'),
+        city:"60730f4c1271150dc4253624"
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ab7",
+        programTypes: [
+            "60731d4de0520d2f184216fa"
+        ],
+        deadline: new Date('06-25-2021'),
+        city:"60730f4c1271150dc4253624"
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ac7",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        deadline: new Date('06-25-2021'),
+        city:"60730f4c1271150dc4253624"
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ac0",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        deadline: new Date('06-25-2021'),
+        city:"60730f4c1271150dc4253624"
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724abe",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        deadline: new Date('06-25-2021'),
+        city:"60730f4c1271150dc4253624"
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724acb",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+            "60731d4de0520d2f184216fa"
+        ],
+        deadline: new Date('08-25-2021'),
+        city:"60730f4c1271150dc4253624"
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724ace",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+        ],
+        deadline: new Date('07-12-2021'),
+        city:"60730f4c1271150dc4253624"
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724aca",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+        ],
+        deadline: new Date('06-25-2021'),
+        city:"60730f4c1271150dc4253624"
+    },
+    {
+        details: "",
+        university: "6073425a82d0162708724aaa",
+        programTypes: [
+            "60731d4de0520d2f184216f8",
+        ],
+        deadline: new Date('06-25-2021'),
+        city:"60730f4c1271150dc4253624"
+    },
+
+];
+
+
+const news = [{
+    title: "Murad Ali Shah suspends the administrative control of public universities to Sindh HEC",
+    image: "https://cdn-education.tribune.com.pk/blogs/sD7JuxG1gUqlDQIW6qSIkDL78YKAAjIfVnX4Ojkn.jpeg",
+    description: `Syed Murad Ali Shah, the Chief Minister of Sindh, has temporarily suspended the 
+    transfer of administrative powers over the province's public universities to the Sindh Higher
+    Education Commission (HEC).[sep]Regarding the transition of administrative control of
+    government universities across Sindh from the Universities and Boards Department to the
+    Sindh HEC, he will consult
+    with concerned authorities and the Adviser to the CM on Universities and Boards, Nisar Ahmed Khuhro.[sep]
+    According to the details, the decision to halt the transition of administrative powers to public universities was made after the concerned secretary briefed the provincial cabinet on the issue on Wednesday.
+    [sep]After the passage of the Constitution's eighteenth Amendment, the meeting's attendees were told that public universities were required to take their complaints to several administrative bodies rather than only one.`
+}];
+

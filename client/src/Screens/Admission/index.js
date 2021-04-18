@@ -1,137 +1,59 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import Header from '../../Components/Header'
 import Footer from '../../Components/Footer'
 import SelectItem from '../../Components/SelectItem'
 import HeaderText from '../../Components/HeaderText'
-import UniversityItem from '../../Components/UniversityItem'
+import axios from 'axios'
+import moment from 'moment';
+import { ToastContainer, toast } from 'react-toastify';
 
-
-
-
-const UniversityData = [
-    {
-        id:1,
-        city_id:2,
-        course_id:1,
-        date:"03-August-2021",
-        name:"Institute of Space and Technology",
-    },
-    {
-        id:2,
-        city_id:1,
-        course_id:1,
-        date:"22-September-2021",
-        name:"Dawood UET",
-    },
-    {
-        id:3,
-        city_id:1,
-        course_id:1,
-        date:"23-October-2021",
-        name:"PAF_KIET",
-    },
-    {
-        id:4,
-        city_id:1,
-        course_id:2,
-        date:"03-August-2021",
-        name:"Islamia College Karachi",
-    },
-    {
-        id:5,
-        city_id:1,
-        course_id:2,
-        date:"03-July-2021",
-        name:"Delhi College",
-    },
-]
-
-
-
-
-
-
-const PROGRAM = [
-    {
-        id:1,
-        name:"UNIVERSITY"
-    },
-    
-    {
-        id:2,
-        name:"COLLEGE"
-    }
-    ,
-    {
-        id:3,
-        name:"SCHOOL"
-    },
-]
-
-
-
-
-
-
-const CITY = [
-    {
-        id: 1,
-        name: "Karachi"
-    },
-    {
-        id: 2,
-        name: "Islamabad"
-    },
-    {
-        id: 3,
-        name: "Lahore"
-    },
-    {
-        id: 4,
-        name: "Peshawar"
-    },
-    {
-        id: 5,
-        name: "RawalPindi"
-    },
-]
 
 
 const Admission = (props) => {
     
-    const [data,setdata] = useState(UniversityData)
+    const [programType,setProgramType] = useState('')
+    const [programTypes,setProgramTypes] = useState([])
+    const [universities, setUniversities] = useState([]);
 
 
-    // const [state,setState] = useState({
-    //     location:"",
-    //     degree:""
-    // })
-    const [location,setLocation] = useState("")
-    const [degree,setDegree] = useState("")
+    useEffect(() => {
+        fetchProgramTypes();
+        fetchAdmissionUniversities();
+    },[])
 
-
-
-
-
-const onChange =  (type,id) =>{
-    if(type==="city_id"){
-        setLocation(id)
+    const fetchProgramTypes = async () => {
+        try {
+            const res = await axios.get('program/programTypes');
+            if (res?.data?.statusCode === 200) {
+                setProgramTypes(res?.data?.Data);
+            }
+        } catch (err) {
+            console.log('err',err)
+        }
     }
-    else{
-        setDegree(id)
+    const fetchAdmissionUniversities = async(id = null) => {
+        try {
+            const programTypeId = id ? '/' + id : '';
+            const res = await axios.get(`university/admissions${programTypeId}`);
+            if (res?.data?.statusCode === 200) {
+                const universities = res?.data?.Data.map(uni => ({
+                    ...uni, details: uni.programTypes.reduce((acc, currVal, ind) => {
+                        return ind < uni?.programTypes?.length -1 ? (acc + currVal?.title + ', ') : (acc + ' and ' + currVal?.title)
+                    },'For ')
+                }));
+                setUniversities(universities);
+            }
+        } catch (err) {
+            console.log('err',err)
+        }
     }
-    if(type==='city_id' && !!degree){
-        setdata(UniversityData.filter(item=>item.city_id==id&&item.course_id==degree))
+
+    const searchAdmissions = async () => {
+        if (!programType) return toast.warn('Please Select Program Type');
+        await fetchAdmissionUniversities(programType)
     }
-    else if(type==='course_id' && !!location ){
-        setdata(UniversityData.filter(item=>item.city_id==location&&item.course_id==id))
-    }
-    else{
-        setdata(UniversityData.filter((item)=>item[type]==id))
-    }
-    
-    // setdata(data.find((item)=>item[type]===id))
-}
+
+
     return (
         <>
             <Header />
@@ -143,22 +65,15 @@ const onChange =  (type,id) =>{
                         paragraph="Narrow down your favourite institutes and compare them side by side with our built-in tools"
                     />
                 </div>
-                <div class="admission-header">
+                <div className="admission-header">
                     <div style={{ width: '40%', }}>
                         <SelectItem
-                            title="Select City"
-                            selectItem={(id) => onChange("city_id",id.target.value)}
-                            placeholder="Select a City"
-                            data={CITY}
+                            title="Select a Program Type"
+                            selectItem={(event) => setProgramType(event.target.value)}
+                            placeholder="Select a Program Type"
+                            data={programTypes}
                         />
-                    </div>
-                    <div style={{ width: '40%', }}>
-                        <SelectItem
-                            title="Select a Institute Type"
-                            selectItem={(id) => onChange("course_id",id.target.value)}
-                            placeholder="Select a Institute Type"
-                            data={PROGRAM}
-                        />
+                        <button onClick={searchAdmissions} className='search-button'>Search Admissions</button>
                     </div>
                 </div>
                 <div className="admission-title">
@@ -168,21 +83,24 @@ const onChange =  (type,id) =>{
                         paragraph=""
                     />
                 </div>
-                <div style={{width:'80%',margin:'auto',flexDirection:'row',display:'flex',flexWrap:'wrap'}}>
-                    
-                    {data.length?data.map((university)=> {return <UniversityItem {...university} />}):"No Admissions found!"}
+                <div className="uni-container">
+                    {universities?.map((uni, ind) => (
+                        <div key={ind} className="uni-item">
+                            <div className="uni-image-container">
+                                <img src={uni?.university?.image } />
+                            </div>
+                            <div className="uni-details">
+                                <div className="uni-details-date">{moment(uni?.lastDate).format('MMMM Do YYYY')}</div>
+                                <div className="uni-details-title">{uni?.university?.title}</div>
+                                <div className="uni-details-date">{uni?.details}</div>
+                            </div>
+                        </div>
+                    )) }
                 </div>
 
-            
-            
-            
-            
-            
-            
-            
-            
             </div>
             <Footer />
+            <ToastContainer />
         </>
     )
 }
