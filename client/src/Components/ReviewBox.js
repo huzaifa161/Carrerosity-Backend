@@ -10,7 +10,7 @@ const ReviewBox = (props) => {
         <div className="reviewBox">
           
            
-            <h3>Ahmad Mustafeen</h3>
+            <h3>Muhammad Abdullah</h3>
             {props.stars.map(star=>{  return <FontAwesomeIcon icon={faStar}  style={{color:'rgb(255, 208, 0)'}} />})}
             <h4>03-April-2021</h4>
             <h5>"Some very very good written here"</h5>

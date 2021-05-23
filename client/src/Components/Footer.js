@@ -8,7 +8,7 @@ const Footer = () => {
       <MDBContainer  className="text-center text-md-left">
         <MDBRow>
           <MDBCol md="7">
-            <h5 className="title">Site Title</h5>
+            <h5 className="title">Carrerosity</h5>
             <p>
              This is proudly made by some people studying in PAF-KIET to enable student find best opportunites for their career
             </p>
@@ -37,7 +37,7 @@ const Footer = () => {
       </MDBContainer>
       <div className="footer-copyright text-center py-3">
         <MDBContainer fluid>
-          &copy; Site Title
+          &copy; Carrerosity || All Rights are reserved
         </MDBContainer>
       </div>
     </MDBFooter>
