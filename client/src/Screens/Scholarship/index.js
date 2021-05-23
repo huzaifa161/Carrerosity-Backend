@@ -80,7 +80,11 @@ const ScholarShip = (props) => {
                             </div>
                             <div className="uni-details">
                                 <div className="uni-details-date">{moment(uni?.deadline).format('MMMM Do YYYY')}</div>
-                                <div className="uni-details-title">{uni?.university?.title}</div>
+                                <div className="uni-details-title">
+                                <a className="detail-link" href={ "university/"+uni?.university?._id}>
+                                    {uni?.university?.title}
+                                </a>
+                                    </div>
                                 <div className="uni-details-date">{uni?.details}</div>
                             </div>
                         </div>

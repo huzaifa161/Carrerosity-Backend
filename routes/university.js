@@ -5,7 +5,10 @@ const {
     compareUniversities,
     getAdmissions,
     getAdmissionsByProgramType,
-    getScholarships,getScholarshipsByProgramType } = require('../controllers/university');
+    getScholarships,getScholarshipsByProgramType, getUniversityDetails } = require('../controllers/university');
+
+
+
 
 router.get('/', getUniversities);
 
@@ -19,5 +22,5 @@ router.get('/admissions/:id', getAdmissionsByProgramType);
 router.get('/scholarships', getScholarships);
 router.get('/scholarships/:id', getScholarshipsByProgramType);
 
-
+router.get('/:id', getUniversityDetails);
 module.exports = router;

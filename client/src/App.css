@@ -793,7 +793,8 @@ padding:0 30px;
 }
 
 .uni-image-container{
-  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
   border: 1px solid #eeeeee;
   margin-right: 8px;
 }
@@ -846,4 +847,54 @@ padding:0 30px;
   font-weight: 700;
   text-align: justify;
   color: black;
+}
+
+.details-container{
+  padding-top: 100px;
+  width: 85%;
+  margin: auto;
+  min-height: 72vh;
+}
+.details-container p {
+  letter-spacing: .8px;
+  font-size: 14px;
+  text-align: justify;
+}
+.heading-secondary{
+  margin-top: 48px;
+}
+.d-flex{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.d-flex  div{
+  font-size: 14px;
+} 
+
+.campus-facilities > div {
+  padding: 12px;
+  border: 1px solid #eeeeee;  
+}
+.campus-facilities > div:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.25);
+}
+.admission-details .detail-row{
+  display: flex;
+  padding: 8px;
+  border: 1px solid #eeeeee;
+}
+.admission-details .detail-row .key{
+  width: 30%;
+}
+.admission-details .detail-row .value{
+  width: 70%;
+}
+.detail-link{
+  color: black;
+}
+.detail-link:hover{
+  text-decoration: none;
+  color:black;
 }

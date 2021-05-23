@@ -21,6 +21,8 @@ const UniversitySchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    overview: String,
+    examinationType:String,
     campusFacilities:{
         auditorium:Boolean,
         wifi: Boolean,

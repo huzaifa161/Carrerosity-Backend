@@ -48,9 +48,11 @@ exports.getAdmissionsByProgramType = async (req, res) => {
 }
 exports.getScholarships = async (req, res) => {
     try {
+        console.log('request')
         const Data = await Scholarship.find().populate('programTypes').populate('university').exec();
         return res.json({ statusCode: 200, Data });
     } catch (err) {
+        console.log('err',err)
         return res.json({ statusCode: 400, message: "Something Went Wrong" });
     }
 }
@@ -62,4 +64,48 @@ exports.getScholarshipsByProgramType = async (req, res) => {
     } catch (err) {
         return res.json({ statusCode: 400, message:"Something Went Wrong" });
     }
+}
+
+
+exports.getUniversityDetails = async (req, res) => {
+    try {
+        let campusFacilities = [];
+        const { id } = req.params;
+        const response = await University.findById(id).exec();
+        if (response && response.campusFacilities) {
+            let facilities = response.campusFacilities;
+            facilities = Object.entries(facilities).filter(f => f[1]).map(f => f[0]);
+            campusFacilities = facilities;
+        } else {
+            campusFacilities = [];
+        }
+        const Data = { ...response?._doc };
+        Data.campusFacilities = campusFacilities;
+       
+
+        if (response._id) {
+            const admissionReponse = await Admission.findOne({ university: response._id }).populate('programTypes').exec();
+            if (admissionReponse && admissionReponse._id) {
+                Data.admission = admissionReponse._doc;
+                Data.admission.programTypes = admissionReponse.programTypes.map(pType => pType.title);
+            } else {
+                Data.admission = null;
+            }
+            const scholarshipReponse = await Scholarship.findOne({ university: response._id }).populate('programTypes').exec();
+            if (scholarshipReponse && scholarshipReponse._id) {
+                Data.scholarship = scholarshipReponse._doc;
+                Data.scholarship.programTypes = scholarshipReponse.programTypes.map(pType => pType.title);
+            } else {
+                Data.scholarship = null;
+            }
+
+        }
+
+        return res.json({ statusCode: 200, Data});
+    } catch (err) {
+        console.log('err',err)
+        return res.json({ statusCode: 400, message:"Something Went Wrong" });
+
+        
+}
 }
